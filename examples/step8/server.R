@@ -25,7 +25,7 @@ getTs <- function(grdc_num, nc) {
 
 shinyServer(function(input, output, session) {
   
-  basins <- sf::st_read(dsn = "../../stationbasins.geojson")
+  basins <- sf::st_read(dsn = "../../data/stationbasins.geojson")
   
   output$mymap <- renderLeaflet({
     leaflet(basins) %>%
@@ -52,7 +52,7 @@ shinyServer(function(input, output, session) {
               ylab = "runoff [m³/s]",
               main = paste0(basins[basins$GRDC_NO == p$id,]$RIVER,
                             ": gauge ",
-                            basins[basins$GRDC_NO == p$id,]$STATION))
+                            basins[basins$GRDC_NO == p$id,]$STATION)
     )
   })
   

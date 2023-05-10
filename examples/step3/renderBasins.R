@@ -1,6 +1,6 @@
 library(leaflet)
 
-basins <- sf::st_read(dsn = "../../stationbasins.geojson")
+basins <- sf::st_read(dsn = "../../data/stationbasins.geojson")
 
 map <- leaflet(basins) %>%
   addProviderTiles(providers$Stamen.TonerLite,

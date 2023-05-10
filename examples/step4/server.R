@@ -2,7 +2,7 @@ library(shiny)
 
 shinyServer(function(input, output, session) {
   
-  basins <- sf::st_read(dsn = "../../stationbasins.geojson")
+  basins <- sf::st_read(dsn = "../../data/stationbasins.geojson")
   
   output$mymap <- renderLeaflet({
     leaflet(basins) %>%
