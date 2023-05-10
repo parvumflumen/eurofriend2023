@@ -33,10 +33,15 @@ shinyServer(function(input, output, session) {
                        options = providerTileOptions(noWrap = TRUE)
       ) %>% leaflet::addPolygons(stroke = TRUE,
                                  color="white",
+                                 weight=2,
                                  smoothFactor = 0.3, 
-                                 fillOpacity = 1,
-                                 fillColor = "blue",
-                                 layerId = ~GRDC_NO)
+                                 fillOpacity = 0.5,
+                                 fillColor = "green",
+                                 layerId = ~GRDC_NO) %>%
+      leaflet::addPolylines(data = rivers,
+                            color="blue",
+                            weight = 1) 
+      
   })
   
   runoff <- RNetCDF::open.nc(con = "../../data/GRDC-Daily.nc")

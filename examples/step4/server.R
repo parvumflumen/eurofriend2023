@@ -10,9 +10,13 @@ shinyServer(function(input, output, session) {
                        options = providerTileOptions(noWrap = TRUE)
       ) %>% leaflet::addPolygons(stroke = TRUE,
                                  color="white",
+                                 weight=2,
                                  smoothFactor = 0.3, 
-                                 fillOpacity = 1,
-                                 fillColor = "blue")
+                                 fillOpacity = 0.5,
+                                 fillColor = "green") %>%
+      leaflet::addPolylines(data = rivers,
+                            color="blue",
+                            weight = 1)
   })    
   
 })
