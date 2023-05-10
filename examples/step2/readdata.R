@@ -1,11 +1,11 @@
 library(RNetCDF)
 library(sf)
 
-basins <- sf::st_read(dsn = "../../stationbasins.geojson")
+basins <- sf::st_read(dsn = "../../data/stationbasins.geojson")
 runoff <- RNetCDF::open.nc(con = "../../data/GRDC-Daily.nc")
 
 
-plot(basins)
+plot(basins$geometry)
 print.nc(runoff)
 
 values <- var.get.nc(runoff, 
